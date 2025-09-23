@@ -118,7 +118,7 @@ a:hover{ text-decoration: underline; }
 .section-lead{ color: var(--muted); margin: 0 0 2rem 0; }
 
 /* ====== Projects: creative grid ====== */
-.masonry{
+/* .masonry{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: 1fr;
@@ -143,21 +143,232 @@ a:hover{ text-decoration: underline; }
 .card h3{ margin: .2rem 0 .2rem 0; font-size: 1.05rem; }
 .card p{ color: var(--muted); margin: .4rem 0 0; }
 
-/* funky spans for visual rhythm */
+/* funky spans for visual rhythm *//*
 .card.wide{ grid-column: span 8; }
 .card.tall{ grid-template-rows: 320px auto; }
-.card.span-2x2{ grid-column: span 6; grid-template-rows: 260px auto; }
+.card.span-2x2{ grid-column: span 6; grid-template-rows: 260px auto; } 
+*/
+/* ====== New Creative Project Layouts ====== */
+.project {
+  margin-bottom: 6rem;
+  position: relative;
+}
 
-@media (max-width: 960px){
-  .card{ grid-column: span 6; }
-  .card.wide{ grid-column: span 12; }
-  .card.span-2x2{ grid-column: span 12; }
+.project-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 .4rem 0;
+  color: var(--yellow-ink);
 }
-@media (max-width: 640px){
-  .masonry{ grid-template-columns: repeat(6, 1fr); }
-  .card, .card.wide, .card.span-2x2{ grid-column: span 6; }
-  .card{ grid-template-rows: 180px auto; }
+.project-subtitle {
+  margin: 0 0 1.6rem 0;
+  color: var(--muted);
+  font-weight: 600;
 }
+/* Shared styles */
+.project-layout {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+}
+
+.project-photo {
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  box-shadow: 0 12px 26px rgba(0,0,0,.12);
+}
+
+.project-photo.landscape {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.project-photo.portrait {
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 30px;   
+  background-color: #111; 
+  max-width: 300px; 
+}
+
+.project-box {
+  background: #fffef5;
+  border: 2px solid var(--yellow);
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 6px 6px 0 var(--yellow);
+  font-size: 1rem;
+  position: relative;
+}
+
+.project-box h4 {
+  margin: 0 0 .5rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--yellow-ink);
+}
+
+/* Project 1 layout (staggered diagonal) */
+.project-one {
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+}
+.project-one > *:nth-child(1) { grid-column: 1 / 4; }
+.project-one > *:nth-child(2) { grid-column: 4 / 7; grid-row: 1; }
+.project-one > *:nth-child(3) { grid-column: 1 / 5; grid-row: 2; }
+.project-one > *:nth-child(4) { grid-column: 5 / 7; grid-row: 2; }
+.project-one > *:nth-child(5) { grid-column: 1 / 3; grid-row: 3; }
+.project-one > *:nth-child(6) { grid-column: 3 / 7; grid-row: 3; }
+
+/* Project 2 layout (different stagger) */
+/* .project-two {
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+
+}
+.project-two > *:nth-child(1) { grid-column: 2 / 5; grid-row: 1; }
+.project-two > *:nth-child(2) { grid-column: 5 / 6; grid-row: 1; } */
+
+/* Row 2: text box + 3 photos in a row */
+/* .project-two > *:nth-child(3) { grid-column: 1 / 4; grid-row: 2; } 
+.project-two > *:nth-child(4) { grid-column: 4 / 5.5; grid-row: 2; } 
+.project-two > *:nth-child(5) { grid-column: 5.5 / 7; grid-row: 2; }  */
+
+/* Row 3 */
+/* .project-two > *:nth-child(6) { grid-column: 2 / 5; grid-row: 3; } 
+.project-two > *:nth-child(7) { grid-column: 5 / 7; grid-row: 3; }  */
+
+/* Responsive stacking */
+/* @media (max-width: 800px) {
+  .project-one, .project-two {
+    grid-template-columns: 1fr;
+  }
+  .project-one > *, .project-two > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+} */
+
+/* ===== Project Two: iPhone-focused layout ===== */
+.project-two {
+  display: grid;
+  gap: 2.2rem;
+}
+
+/* Each row is a small grid: text on the left, phones on the right */
+.project-two .row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  gap: 1.6rem;
+}
+
+/* Row 1: big hero phone */
+.project-two .row-hero .project-box { grid-column: 3 / 7; }
+.project-two .row-hero .phone       { grid-column: 7 / 13; }
+
+/* Row 2: text + 3-up gallery */
+.project-two .row-gallery .project-box { grid-column: 1 / 5; }
+.project-two .row-gallery .phone-gallery { 
+  grid-column: 5 / 13; 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Row 3: text + large supporting phone */
+.project-two .row-outro .project-box { grid-column: 3 / 7; }
+.project-two .row-outro .phone       { grid-column: 7 / 13; }
+
+/* ---- Phone mockups (portrait, iPhone 12 ratio) ---- */
+.phone,
+.phone-gallery .phone,
+.phone--lg,
+.phone--xl {
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;                 /* phone-like corners */
+  aspect-ratio: 9 / 19.5;              /* iPhone 12 portrait */
+  box-shadow: 0 18px 40px rgba(0,0,0,.18), 0 3px 10px rgba(0,0,0,.08);
+  background-color: #111;              /* subtle bezel if image doesn't fill */
+}
+.phone-gallery .phone {
+  border-radius: 28px;                   /* slightly less rounded for gallery */
+}
+.phone { position: relative; overflow: hidden; }  /* ensure rounding clips video */
+
+.phone-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* behave like background-size: cover */
+  border-radius: inherit; /* match .phone/.phone--lg/.phone--xl corners */
+}
+
+/* Sizes: tweak these two numbers to make everything bigger/smaller */
+:root{
+  --phone-lg: 300px;   /* large phone size */
+  --phone-xl: 300px;   /* hero phone size */
+}
+
+.phone        { max-width: 280px; justify-self: center; width: 100%; }
+.phone--lg    { max-width: var(--phone-lg); justify-self: end; width: 100%; }
+.phone--xl    { max-width: var(--phone-xl); justify-self: end; width: 100%; }
+
+/* Make the gallery phones nice and readable */
+.phone-gallery .phone { max-width: 300px; }
+
+/* Tighten spacing for phones on big screens */
+@media (min-width: 1080px){
+  .phone-gallery { align-items: start; }
+}
+
+/* ---- Responsive behavior ---- */
+@media (max-width: 980px){
+  .project-two .row {
+    grid-template-columns: 1fr;
+  }
+  .project-two .row > * {
+    grid-column: auto !important;
+  }
+
+  /* Stack: text first, then phones */
+  .project-two .row-hero .phone,
+  .project-two .row-outro .phone { justify-self: center; }
+
+  .project-two .row-gallery .phone-gallery{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: .9rem;
+    justify-content: center;
+  }
+}
+
+/* On very narrow screens, switch the 3-up gallery to a horizontal scroller with snap */
+@media (max-width: 720px){
+  .project-two .row-gallery .phone-gallery{
+    display: grid; /* keeps gap spacing */
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(200px, 1fr);
+    overflow-x: auto;
+    padding-bottom: .4rem;
+    scroll-snap-type: x mandatory;
+  }
+  .project-two .row-gallery .phone-gallery .phone{
+    scroll-snap-align: center;
+    max-width: none;
+    width: 88%;
+    margin: 0 auto;
+  }
+
+  /* Scale phones slightly down to fit small screens */
+  :root{
+    --phone-lg: 250px;
+    --phone-xl: 250px;
+  }
+}
+
 
 /* ====== Resume ====== */
 .resume-frame{
