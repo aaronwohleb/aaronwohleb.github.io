@@ -85,7 +85,7 @@ a:hover{ text-decoration: underline; }
 }
 .hero-media{
   position: absolute; inset: 0;
-  background-image: url('Images\aaron_-16.jpeg');
+  background-image: url('Images/aaron_-16.jpeg');
   /* Replace the URL above with your own large photo (e.g. /images/hero.jpg) */
   background-size: cover; background-position: 50% 40%;
   transform: scale(1.02);
