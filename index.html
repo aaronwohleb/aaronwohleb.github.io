@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -11,6 +12,7 @@
 
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <!-- Sticky Navigation -->
@@ -106,41 +108,51 @@
     <div class="wrap">
       <h2 class="section-title">Resume</h2>
       <a class="btn" href="resume.pdf" download target="_blank" rel="noopener">Download PDF</a>
+    </div>
 
-      <!-- If you have a PDF, replace src below with your file path and keep the details list as a fallback. -->
-      <div class="resume-stack">
+    <!-- If you have a PDF, replace src below with your file path and keep the details list as a fallback. -->
+    <div class="resume-stack">
       <img src="Images\ResumeFall2025Website.jpeg" alt="Resume">
 
     </div>
 
-      <div class="resume-grid">
-        <div>
-          <h3>Experience</h3>
-          <ul class="resume-list">
-            <li>
-              <strong>Website Development/Data Intern @ APPA-Leadership in Education Facilities</strong>   2025–Present<br>
-              Developed skills in HTML, UX and UI design, and data management.
-            </li>
-            <li>
-              <strong>Customer Service @ Scheels</strong> — 2022–2024<br>
-              Developed strong communication, leadership, and problem-sloving skills.
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Education</h3>
-          <ul class="resume-list">
-            <li><strong>Computer Engineering (Major) Business (Minor), Jeffrey S. Raikes School of Computer Science and Management</strong> — Sophomore</li>
-          </ul>
-
-          <h3>Skills</h3>
-          <ul class="tags">
-            <li>HTML/CSS</li><li>Java</li><li>Figma</li>
-            <li>C#</li><li>Unity</li><li>SQL</li>
-            <li>Python</li><li>UX/UI</li>
-          </ul>
-        </div>
+    <div class="resume-grid">
+      <div class="col-left">
+        <h3>Experience</h3>
+        <ul class="resume-list">
+          <li>
+            <strong>Website Development/Data Intern @ APPA – Leadership in Education Facilities</strong> —
+            2025–Present<br>
+            Developed skills in HTML, UX and UI design, and data management.
+          </li>
+          <li>
+            <strong>Customer Service @ Scheels</strong> — 2022–2024<br>
+            Developed strong communication, leadership, and problem-solving skills.
+          </li>
+        </ul>
       </div>
+
+      <aside class="col-right">
+        <h3>Education</h3>
+        <ul class="resume-list">
+          <li>
+            <strong>Computer Engineering (Major), Business (Minor)</strong><br>
+            Jeffrey S. Raikes School of Computer Science and Management — Sophomore
+          </li>
+        </ul>
+
+        <h3>Skills</h3>
+        <ul class="tags">
+          <li>HTML/CSS</li>
+          <li>Java</li>
+          <li>Figma</li>
+          <li>C#</li>
+          <li>Unity</li>
+          <li>SQL</li>
+          <li>Python</li>
+          <li>UX/UI</li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -199,4 +211,5 @@
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>

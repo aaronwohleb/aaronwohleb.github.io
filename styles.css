@@ -174,16 +174,30 @@ a:hover{ text-decoration: underline; }
   height: min(85vh, 1100px); /* Tall but not overwhelming */
   border: 0;
 }
+.resume-grid{
+  display: grid;
+  grid-template-columns: 2fr 1fr;  /* left wider, right narrower */
+  gap: 2rem;
+  margin-top: 1.5rem;
+  align-items: start;
+}
+
+/* Explicit column placement (optional but clear) */
+.col-left  { grid-column: 1; }
+.col-right { grid-column: 2; }
+
+/* Mobile: stack */
+@media (max-width: 840px){
+  .resume-grid{ grid-template-columns: 1fr; }
+  .col-left  { grid-column: 1; }
+  .col-right { grid-column: 1; } /* appears under Experience */
+}
 .resume-list{ padding-left: 1.2rem; }
 .resume-list li{ margin-bottom: 1rem; }
 .tags{ list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
 .tags li{
   border: 1px solid var(--line);
   padding: .35rem .6rem; border-radius: 999px; background: #fffdf2;
-}
-
-@media (max-width: 840px){
-  .resume-grid{ grid-template-columns: 1fr; }
 }
 
 /* ====== Contact ====== */
