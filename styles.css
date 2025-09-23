@@ -197,6 +197,17 @@ a:hover{ text-decoration: underline; }
   box-shadow: 0 16px 48px rgba(0,0,0,.16);
   display: block;
 }
+.resume-img{
+  width: 100% !important;        /* fill container on small screens */
+  max-width: 650px !important;   /* <-- adjust this number to your taste */
+  height: auto;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 48px rgba(0,0,0,.16);
+  display: block;
+}
+
 
 /* Explicit column placement (optional but clear) */
 .col-left  { grid-column: 1; }
