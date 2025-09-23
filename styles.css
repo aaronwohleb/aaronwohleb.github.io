@@ -178,8 +178,8 @@ a:hover{ text-decoration: underline; }
   display: grid;
   grid-template-columns: 2fr 1fr;  /* left wider, right narrower */
   gap: 2rem;
-  margin-top: 1.5rem;
-  align-items: start;
+  margin: 1.5rem auto;
+  justify-content: center;
 }
 .resume-stack{
   display: flex;
